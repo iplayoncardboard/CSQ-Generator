@@ -20,7 +20,6 @@ export class AppComponent{
     private dialog: MatDialog
     ) {
     this.masterList = this.masterListService.createNewList();
-    console.log(this.masterList)
   }
 
 
@@ -45,16 +44,13 @@ export class AppComponent{
     this.masterList = this.masterListService.newDateTime(this.masterList, event, null);
   }
   onUpdateDateTime(event){
-    console.log(event)
     this.masterList = this.masterListService.updateDateTime(this.masterList, event.csqIndex, event.dateTimeIndex, event.data)
-    console.log(this.masterList);
   }
   onCopyDateTime(event){
     this.masterList =this.masterListService.CopyDateTime(this.masterList, event.csqIndex)
   }
   onRemoveDateComponent(event){
     this.masterList = this.masterListService.removeDateTime(this.masterList, event.csqIndex, event.dateTimeIndex);
-    console.log(this.masterList);
   }
   onSaveListEvent()
   {

@@ -84,7 +84,22 @@ csqListWithOneEntryWithNewDateTime = {
         endDate: new Date()
     }] 
   }]
-}
+};
+csqListWithOneEntryWithUpdatedDateTime = {
+    title: 'NewList',
+    xmlVersion: 1.0,
+    encoding: 'ISO-8859-1',
+    listOfCSQ: [{
+      title: 'Radiology',
+      notes: 'Notes',
+      dateTimeList: [{
+        startTime: '06:00:00',
+        startDate: new Date(),
+        endTime: '13:00:00',
+        endDate: new Date()
+    }] 
+  }]
+};
 
 populatedCSQListAfterRemove = {
     title: 'CSQHolidayList',

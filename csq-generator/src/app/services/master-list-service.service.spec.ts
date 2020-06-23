@@ -46,5 +46,21 @@ describe('MasterListServiceService', () => {
   it('should add a new date time when newDateTime() is called',()=>{
     let tempCSQList = service.newDateTime(mockCSQList.csqListWithOneEntry,0, mockDateTime.newDateTime)
     expect(tempCSQList).toEqual(mockCSQList.csqListWithOneEntryWithNewDateTime)
+  });
+
+  it('should remove a date time form dateTimeList when removeDateTime() is called', () =>{
+    let tempCSQList = service.removeDateTime(mockCSQList.csqListWithOneEntryWithNewDateTime, 0,0)
+    expect(tempCSQList).toEqual(mockCSQList.csqListWithOneEntry);
+  })
+
+  it('should change value of a date time in dateTimeList when updateDateTime() is called', () => {
+    let tempCSQList = service.updateDateTime(mockCSQList.csqListWithOneEntryWithNewDateTime, 0, 0, mockDateTime.updatedDateTime)
+    expect(tempCSQList).toEqual(mockCSQList.csqListWithOneEntryWithUpdatedDateTime);
+  })
+
+  it('should copy the value of the last DateTime object in the array when CopyDateTime is called',() => {
+    let tempCSQList = service.CopyDateTime(mockCSQList.csqListWithOneEntryWithNewDateTime,0)
+    expect(tempCSQList.listOfCSQ[0].dateTimeList.length).toEqual(2);
+    expect(tempCSQList.listOfCSQ[0].dateTimeList[1]).toEqual(mockDateTime.newDateTime);
   })
 });
