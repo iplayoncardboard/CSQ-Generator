@@ -19,15 +19,12 @@ export class XmlService {
     const xml = root.end({ prettyPrint: true });
     const blob = new Blob([xml],{type: 'text.xml'});
     
-    
-    console.log(xml);
     this.saveFile(blob, csqList.title);
   }
 
   saveFile(blob:Blob, title:string){
     const date = new Date().toString()
     const fileName = title+date+'.xml'
-    console.log(fileName);
     saveAs(blob, fileName);
   }
 
@@ -57,8 +54,6 @@ export class XmlService {
     let month = date.getMonth()+1
     let day = date.getDate();
     dateString = `${this.formatDigits(month.toString())}/${this.formatDigits(day.toString())}/${date.getFullYear()}`
-    console.log(dateString)
-
     return dateString
   }
 

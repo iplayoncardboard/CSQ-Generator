@@ -23,6 +23,8 @@ export class AppComponent{
     console.log(this.masterList)
   }
 
+
+
   createNewCSQList(){
     this.masterList = this.masterListService.createNewList();
   }
@@ -37,22 +39,21 @@ export class AppComponent{
   }
 
   onRemoveListHeader(event){
-    this.masterListService.removeListHeader(this.masterList, event);
+    this.masterList = this.masterListService.removeListHeader(this.masterList, event);
   }
   onAddNewDateTimeEntry(event){
-    this.masterListService.newDateTime(this.masterList, event, null);
-    console.log(this.masterList);
+    this.masterList = this.masterListService.newDateTime(this.masterList, event, null);
   }
   onUpdateDateTime(event){
     console.log(event)
-    this.masterListService.updateDateTime(this.masterList, event.csqIndex, event.dateTimeIndex, event.data)
+    this.masterList = this.masterListService.updateDateTime(this.masterList, event.csqIndex, event.dateTimeIndex, event.data)
     console.log(this.masterList);
   }
   onCopyDateTime(event){
-    this.masterListService.CopyDateTime(this.masterList, event.csqIndex)
+    this.masterList =this.masterListService.CopyDateTime(this.masterList, event.csqIndex)
   }
   onRemoveDateComponent(event){
-    this.masterListService.removeDateTime(this.masterList, event.csqIndex, event.dateTimeIndex);
+    this.masterList = this.masterListService.removeDateTime(this.masterList, event.csqIndex, event.dateTimeIndex);
     console.log(this.masterList);
   }
   onSaveListEvent()

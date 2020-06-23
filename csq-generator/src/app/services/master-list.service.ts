@@ -20,22 +20,24 @@ export class MasterListService {
     }    
   }
 
-  addNewListHeader(csqList: CSQList, title: string, notes: string){
+  addNewListHeader(csqList: CSQList, title: string, notes: string): CSQList{
     let newListHeader: CSQ = { 
     title: title,
     notes: notes,
     dateTimeList:[]
     }
-    csqList.listOfCSQ.push(newListHeader);
+     csqList.listOfCSQ.push(newListHeader);
+     return csqList
   } 
 
-  removeListHeader(masterList: CSQList, index: number){
-    masterList.listOfCSQ.splice(index, 1);
+  removeListHeader(csqList: CSQList, index: number){
+    csqList.listOfCSQ.splice(index, 1);
+    return csqList
   }
 
   
 
-  newDateTime(csqList:CSQList, csqIndex: number, values?: DateTime){
+  newDateTime(csqList:CSQList, csqIndex: number, values?: DateTime): CSQList{
 
     const tempDate = new Date()
     tempDate.setHours(12);
@@ -45,19 +47,24 @@ export class MasterListService {
         startTime: (values && values.startTime)? values.startTime : '12:00:00',
         endDate: (values && values.endDate)? values.endDate : tempDate,
         endTime: (values && values.endTime)? values.endTime : '12:00:00'})
+
+        return csqList;
   }
 
-  removeDateTime(csqList:CSQList, csqIndex: number, dateTimeIndex: number){
+  removeDateTime(csqList:CSQList, csqIndex: number, dateTimeIndex: number):CSQList{
     csqList.listOfCSQ[csqIndex].dateTimeList.splice(dateTimeIndex,1);
+    return csqList;
   }
 
-  updateDateTime(csqList:CSQList, csqIndex: number, dateTimeIndex: number, replacementValue:DateTime){
+  updateDateTime(csqList:CSQList, csqIndex: number, dateTimeIndex: number, replacementValue:DateTime):CSQList{
     csqList.listOfCSQ[csqIndex].dateTimeList.splice(dateTimeIndex,1,replacementValue);
+    return csqList;
   }
 
-  CopyDateTime(csqList: CSQList, csqIndex: number){
+  CopyDateTime(csqList: CSQList, csqIndex: number):CSQList{
     const lastDateTimeIndex = (csqList.listOfCSQ[csqIndex].dateTimeList.length) -1
     const tempValues = csqList.listOfCSQ[csqIndex].dateTimeList[lastDateTimeIndex]
     this.newDateTime(csqList, csqIndex, tempValues)
+    return csqList;
   }
 }

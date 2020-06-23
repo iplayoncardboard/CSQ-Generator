@@ -37,7 +37,6 @@ export class CsqHeaderComponent implements OnInit {
     const removeObj = { ...event,
       csqIndex: this.index
     }
-    console.log(removeObj)
     this.removeDateComponent.emit(removeObj);
   }
 
