@@ -1,0 +1,9 @@
+.dt-intput{
+    padding: 1rem;
+    text-align: right;
+}
+
+.dt-intput.time{
+    width: 5rem;
+  
+}

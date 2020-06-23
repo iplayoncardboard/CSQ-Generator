@@ -1,0 +1,21 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{title}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{notes}}
+            </mat-panel-description>
+            <button mat-raised-button (click)="removeThisCSQ()">-</button>
+        </mat-expansion-panel-header>
+        <app-csq-date *ngFor="let dates of data.dateTimeList let i=index" 
+            [data]="dates"
+            [index]="i"
+            (removeDateComponent)="onRemoveDateComponent($event)"
+            (updateDateTime)="onUpdateDateTime($event)"
+            ></app-csq-date>
+        <button mat-button (click)="addNewDateTime()">New</button>
+        <button mat-button (click)="copyLastDateTime()">Copy</button>
+    </mat-expansion-panel>
+</mat-accordion>

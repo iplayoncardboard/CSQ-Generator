@@ -1,0 +1,15 @@
+<app-nav (emitNewList)="createNewCSQList()"
+        (saveListEvent)="onSaveListEvent()"></app-nav>
+
+<app-csq-title [title]="masterList.title" [version]="masterList.xmlVersion" [encoding]="masterList.encoding"></app-csq-title>
+
+<div>
+    <app-csq-header *ngFor="let csq of masterList.listOfCSQ; let i = index" 
+    [data]="csq" [index]="i"
+    (removeListHeader)="onRemoveListHeader($event)"
+    (addNewDateTimeEntry)="onAddNewDateTimeEntry($event)"
+    (updateDateTime)="onUpdateDateTime($event)"
+    (removeDateComponent)="onRemoveDateComponent($event)"
+    (copyDateTime)="onCopyDateTime($event)"></app-csq-header>
+    <button class="add-button" mat-raised-button color="primary" (click)="addCSQ()">ADD CSQ</button>
+</div>
